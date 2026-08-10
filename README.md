@@ -38,12 +38,9 @@ Atau jika Anda ingin menginstallnya secara manual satu per satu:
 pip install opencv-python mediapipe numpy
 ```
 
-### 4. Pastikan Model MediaPipe Tersedia
-Aplikasi ini membutuhkan dua file model dari MediaPipe yang seharusnya sudah ada di dalam repository ini:
-1. `hand_landmarker.task` (Untuk mendeteksi titik pada tangan)
-2. `selfie_segmenter.tflite` (Untuk filter Galaxy / memisahkan background)
-
-Jika file tersebut belum ada, pastikan untuk meletakkannya di dalam folder yang sama dengan file `main.py`.
+### 4. Model MediaPipe (Otomatis Diunduh)
+Aplikasi ini membutuhkan dua file model dari MediaPipe: `hand_landmarker.task` dan `selfie_segmenter.tflite`.
+Anda **tidak perlu** mengunduhnya secara manual. Saat Anda menjalankan aplikasi untuk pertama kalinya, program akan **otomatis mengunduh** kedua file tersebut (pastikan komputer terhubung ke internet saat pertama kali dijalankan).
 
 ### 5. Jalankan Aplikasi
 Jalankan script utamanya dengan mengetik:

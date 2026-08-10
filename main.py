@@ -3,6 +3,25 @@ import mediapipe as mp
 import time
 import math
 import numpy as np
+import os
+import urllib.request
+
+def download_model_if_not_exists(filename, url):
+    if not os.path.exists(filename):
+        print(f"Mengunduh {filename} (ini mungkin memakan waktu sebentar, hanya terjadi sekali)...")
+        try:
+            urllib.request.urlretrieve(url, filename)
+            print(f"Berhasil mengunduh {filename}!")
+        except Exception as e:
+            print(f"Gagal mengunduh {filename}: {e}")
+            print(f"Silakan unduh manual dari: {url} dan letakkan di folder yang sama dengan main.py")
+            exit(1)
+
+HAND_MODEL_URL = "https://storage.googleapis.com/mediapipe-models/hand_landmarker/hand_landmarker/float16/1/hand_landmarker.task"
+SELFIE_MODEL_URL = "https://storage.googleapis.com/mediapipe-models/image_segmenter/selfie_segmenter/float16/latest/selfie_segmenter.tflite"
+
+download_model_if_not_exists('hand_landmarker.task', HAND_MODEL_URL)
+download_model_if_not_exists('selfie_segmenter.tflite', SELFIE_MODEL_URL)
 
 BaseOptions = mp.tasks.BaseOptions
 HandLandmarker = mp.tasks.vision.HandLandmarker
