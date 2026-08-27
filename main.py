@@ -161,7 +161,7 @@ while True:
             tx, ty = int(thumb.x * w), int(thumb.y * h)
             ix, iy = int(index.x * w), int(index.y * h)
                 
-            # Gestur ganti filter cadangan (Jempol & Kelingking)
+            
             pinky = hand_lms[20]
             px, py = int(pinky.x * w), int(pinky.y * h)
             if math.hypot(tx - px, ty - py) < 40:
